@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Sun, Moon, Globe, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const langMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { key: 'features', href: '#features' },
@@ -32,6 +33,22 @@ export const Header: React.FC = () => {
       setIsMenuOpen(false);
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+
+    if (isLangOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLangOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -60,17 +77,18 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center space-x-3">
-            <div className="relative">
+            <div className="relative" ref={langMenuRef}>
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200"
                 aria-label="Change language"
+                aria-expanded={isLangOpen}
               >
                 <Globe className="w-5 h-5 text-slate-600 dark:text-slate-300" />
               </button>
 
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-1">
+                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-1 z-50">
                   {languages.map(lang => (
                     <button
                       key={lang.code}

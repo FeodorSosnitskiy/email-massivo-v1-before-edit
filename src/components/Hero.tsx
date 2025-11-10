@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-full border border-emerald-200 dark:border-emerald-800">
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                AI-Powered Email Marketing
+                {t.hero.badge}
               </span>
             </div>
 
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white dark:border-slate-800"></div>
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">
-                  <span className="font-bold text-slate-900 dark:text-white">10,000+</span> companies
+                  <span className="font-bold text-slate-900 dark:text-white">10,000+</span> {t.hero.stats.companies}
                 </div>
               </div>
 
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
                   ))}
                 </div>
                 <span className="text-sm text-slate-600 dark:text-slate-400">
-                  <span className="font-bold text-slate-900 dark:text-white">4.9/5</span> rating
+                  <span className="font-bold text-slate-900 dark:text-white">4.9/5</span> {t.hero.stats.rating}
                 </span>
               </div>
             </div>
@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">98%</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-400">Deliverability Rate</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">{t.hero.metrics.deliverability}</div>
                 </div>
 
                 <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform duration-200">
@@ -82,14 +82,14 @@ export const Hero: React.FC = () => {
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">3x</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-400">ROI Increase</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">{t.hero.metrics.roi}</div>
                 </div>
               </div>
 
               <div className="space-y-4 pt-8">
                 <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-2xl shadow-xl text-white hover:scale-105 transition-transform duration-200">
                   <div className="text-4xl font-bold mb-2">150%</div>
-                  <div className="text-emerald-100">Higher Open Rates</div>
+                  <div className="text-emerald-100">{t.hero.metrics.openRates}</div>
                   <div className="mt-4 h-2 bg-white/20 rounded-full overflow-hidden">
                     <div className="h-full w-3/4 bg-white rounded-full"></div>
                   </div>
@@ -97,8 +97,8 @@ export const Hero: React.FC = () => {
 
                 <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform duration-200">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Automation</span>
-                    <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full">Active</span>
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">{t.hero.metrics.automation}</span>
+                    <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full">{t.hero.metrics.active}</span>
                   </div>
                   <div className="space-y-2">
                     {[80, 95, 70].map((width, i) => (

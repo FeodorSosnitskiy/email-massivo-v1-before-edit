@@ -47,14 +47,14 @@ export const Integrations: React.FC = () => {
             <div className="inline-flex items-center justify-center space-x-2 mb-6">
               <Zap className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
               <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wider">
-                500+ Integrations
+                {t.integrations.badge}
               </span>
             </div>
             <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              Connect Everything You Use
+              {t.integrations.description.title}
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
-              From e-commerce platforms to CRM systems, EmailMassivo integrates seamlessly with all your favorite tools. Build a connected marketing ecosystem that works for you.
+              {t.integrations.description.text}
             </p>
             <button className="group inline-flex items-center space-x-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
               <span>{t.integrations.cta}</span>

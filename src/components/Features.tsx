@@ -75,7 +75,7 @@ export const Features: React.FC = () => {
                 {features[0].description}
               </p>
               <div className="mt-8 space-y-3">
-                {['Trigger-based workflows', 'Conditional logic', 'Multi-channel campaigns'].map((item, i) => (
+                {t.features.automation.items.map((item, i) => (
                   <div key={i} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                     <span className="text-slate-600 dark:text-slate-400">{item}</span>

@@ -11,14 +11,31 @@ export const translations = {
       headline: 'Email Marketing That Drives Results',
       subheadline: 'Automate, personalize, and optimize your email campaigns with the power of AI. Reach your audience at the perfect moment.',
       cta: 'Start Free Trial',
-      secondary: 'Watch Demo'
+      secondary: 'Watch Demo',
+      badge: 'AI-Powered Email Marketing',
+      stats: {
+        companies: 'companies',
+        rating: 'rating'
+      },
+      metrics: {
+        deliverability: 'Deliverability Rate',
+        roi: 'ROI Increase',
+        openRates: 'Higher Open Rates',
+        automation: 'Automation',
+        active: 'Active'
+      }
     },
     features: {
       title: 'Everything You Need to Succeed',
       subtitle: 'Powerful features designed to help you create, automate, and optimize your email marketing campaigns',
       automation: {
         title: 'Smart Automation',
-        description: 'Create sophisticated workflows that respond to customer behavior in real-time'
+        description: 'Create sophisticated workflows that respond to customer behavior in real-time',
+        items: [
+          'Trigger-based workflows',
+          'Conditional logic',
+          'Multi-channel campaigns'
+        ]
       },
       personalization: {
         title: 'Deep Personalization',
@@ -119,14 +136,25 @@ export const translations = {
     integrations: {
       title: 'Connects With Your Favorite Tools',
       subtitle: 'Seamlessly integrate with the platforms you already use',
-      cta: 'View All Integrations'
+      cta: 'View All Integrations',
+      badge: '500+ Integrations',
+      description: {
+        title: 'Connect Everything You Use',
+        text: 'From e-commerce platforms to CRM systems, EmailMassivo integrates seamlessly with all your favorite tools. Build a connected marketing ecosystem that works for you.'
+      }
     },
     contact: {
       title: 'Ready to Transform Your Email Marketing?',
       subtitle: 'Join thousands of businesses already growing with EmailMassivo',
       cta: 'Start Your Free Trial',
       secondary: 'No credit card required',
-      trial: '14-day free trial'
+      trial: '14-day free trial',
+      cancelAnytime: 'Cancel anytime',
+      stats: {
+        activeUsers: 'Active Users',
+        emailsSent: 'Emails Sent',
+        satisfaction: 'Satisfaction'
+      }
     },
     footer: {
       tagline: 'Modern email marketing for modern businesses',
@@ -162,14 +190,31 @@ export const translations = {
       headline: 'Email Marketing Que Genera Resultados',
       subheadline: 'Automatiza, personaliza y optimiza tus campañas de email con el poder de la IA. Alcanza a tu audiencia en el momento perfecto.',
       cta: 'Comenzar Prueba Gratis',
-      secondary: 'Ver Demo'
+      secondary: 'Ver Demo',
+      badge: 'Email Marketing Impulsado por IA',
+      stats: {
+        companies: 'empresas',
+        rating: 'calificación'
+      },
+      metrics: {
+        deliverability: 'Tasa de Entrega',
+        roi: 'Aumento de ROI',
+        openRates: 'Mayores Tasas de Apertura',
+        automation: 'Automatización',
+        active: 'Activo'
+      }
     },
     features: {
       title: 'Todo Lo Que Necesitas Para Triunfar',
       subtitle: 'Funciones poderosas diseñadas para ayudarte a crear, automatizar y optimizar tus campañas de email marketing',
       automation: {
         title: 'Automatización Inteligente',
-        description: 'Crea flujos sofisticados que responden al comportamiento del cliente en tiempo real'
+        description: 'Crea flujos sofisticados que responden al comportamiento del cliente en tiempo real',
+        items: [
+          'Flujos basados en activadores',
+          'Lógica condicional',
+          'Campañas multicanal'
+        ]
       },
       personalization: {
         title: 'Personalización Profunda',
@@ -270,14 +315,25 @@ export const translations = {
     integrations: {
       title: 'Conecta Con Tus Herramientas Favoritas',
       subtitle: 'Integra sin problemas con las plataformas que ya utilizas',
-      cta: 'Ver Todas las Integraciones'
+      cta: 'Ver Todas las Integraciones',
+      badge: '500+ Integraciones',
+      description: {
+        title: 'Conecta Todo Lo Que Usas',
+        text: 'Desde plataformas de comercio electrónico hasta sistemas CRM, EmailMassivo se integra perfectamente con todas tus herramientas favoritas. Construye un ecosistema de marketing conectado que funcione para ti.'
+      }
     },
     contact: {
       title: '¿Listo Para Transformar Tu Email Marketing?',
       subtitle: 'Únete a miles de empresas que ya están creciendo con EmailMassivo',
       cta: 'Comenzar Prueba Gratis',
       secondary: 'No se requiere tarjeta de crédito',
-      trial: 'Prueba gratis de 14 días'
+      trial: 'Prueba gratis de 14 días',
+      cancelAnytime: 'Cancela en cualquier momento',
+      stats: {
+        activeUsers: 'Usuarios Activos',
+        emailsSent: 'Emails Enviados',
+        satisfaction: 'Satisfacción'
+      }
     },
     footer: {
       tagline: 'Email marketing moderno para empresas modernas',
@@ -313,14 +369,31 @@ export const translations = {
       headline: 'Email Marketing Que Gera Resultados',
       subheadline: 'Automatize, personalize e otimize suas campanhas de email com o poder da IA. Alcance seu público no momento perfeito.',
       cta: 'Iniciar Teste Grátis',
-      secondary: 'Ver Demo'
+      secondary: 'Ver Demo',
+      badge: 'Email Marketing Impulsionado por IA',
+      stats: {
+        companies: 'empresas',
+        rating: 'avaliação'
+      },
+      metrics: {
+        deliverability: 'Taxa de Entrega',
+        roi: 'Aumento de ROI',
+        openRates: 'Maiores Taxas de Abertura',
+        automation: 'Automação',
+        active: 'Ativo'
+      }
     },
     features: {
       title: 'Tudo Que Você Precisa Para Ter Sucesso',
       subtitle: 'Recursos poderosos projetados para ajudá-lo a criar, automatizar e otimizar suas campanhas de email marketing',
       automation: {
         title: 'Automação Inteligente',
-        description: 'Crie fluxos sofisticados que respondem ao comportamento do cliente em tempo real'
+        description: 'Crie fluxos sofisticados que respondem ao comportamento do cliente em tempo real',
+        items: [
+          'Fluxos baseados em gatilhos',
+          'Lógica condicional',
+          'Campanhas multicanal'
+        ]
       },
       personalization: {
         title: 'Personalização Profunda',
@@ -421,14 +494,25 @@ export const translations = {
     integrations: {
       title: 'Conecta Com Suas Ferramentas Favoritas',
       subtitle: 'Integre perfeitamente com as plataformas que você já usa',
-      cta: 'Ver Todas as Integrações'
+      cta: 'Ver Todas as Integrações',
+      badge: '500+ Integrações',
+      description: {
+        title: 'Conecte Tudo Que Você Usa',
+        text: 'Desde plataformas de comércio eletrônico até sistemas CRM, o EmailMassivo se integra perfeitamente com todas as suas ferramentas favoritas. Construa um ecossistema de marketing conectado que funcione para você.'
+      }
     },
     contact: {
       title: 'Pronto Para Transformar Seu Email Marketing?',
       subtitle: 'Junte-se a milhares de empresas que já estão crescendo com EmailMassivo',
       cta: 'Iniciar Teste Grátis',
       secondary: 'Não é necessário cartão de crédito',
-      trial: 'Teste grátis de 14 dias'
+      trial: 'Teste grátis de 14 dias',
+      cancelAnytime: 'Cancele a qualquer momento',
+      stats: {
+        activeUsers: 'Usuários Ativos',
+        emailsSent: 'Emails Enviados',
+        satisfaction: 'Satisfação'
+      }
     },
     footer: {
       tagline: 'Email marketing moderno para empresas modernas',

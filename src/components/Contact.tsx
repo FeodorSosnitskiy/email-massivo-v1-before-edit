@@ -8,7 +8,7 @@ export const Contact: React.FC = () => {
   const benefits = [
     t.contact.secondary,
     t.contact.trial,
-    'Cancel anytime'
+    t.contact.cancelAnytime
   ];
 
   return (
@@ -48,9 +48,9 @@ export const Contact: React.FC = () => {
 
               <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
                 {[
-                  { value: '10,000+', label: 'Active Users' },
-                  { value: '50M+', label: 'Emails Sent' },
-                  { value: '98%', label: 'Satisfaction' }
+                  { value: '10,000+', label: t.contact.stats.activeUsers },
+                  { value: '50M+', label: t.contact.stats.emailsSent },
+                  { value: '98%', label: t.contact.stats.satisfaction }
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
