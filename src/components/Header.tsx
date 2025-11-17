@@ -12,24 +12,27 @@ export const Header: React.FC = () => {
   const langMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { key: 'features', href: '#features' },
-    { key: 'pricing', href: '#pricing' },
-    { key: 'testimonials', href: '#testimonials' },
-    { key: 'integrations', href: '#integrations' },
-    { key: 'contact', href: '#contact' }
+    { key: 'knowledgeBase', href: '#' },
+    { key: 'support', href: 'mailto:support@emailmassivo.com' },
+    { key: 'pricing', href: '#pricing' }
   ];
 
-  const languages: { code: Language; label: string; flag: string }[] = [
-    { code: 'en', label: 'English', flag: '🇺🇸' },
-    { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'pt', label: 'Português', flag: '🇧🇷' }
+  const languages: { code: Language; label: string; flag: string; codeLabel: string }[] = [
+    { code: 'en', label: 'English', flag: '🇺🇸', codeLabel: 'EN' },
+    { code: 'es', label: 'Español', flag: '🇪🇸', codeLabel: 'ES' },
+    { code: 'pt', label: 'Português', flag: '🇧🇷', codeLabel: 'PT' }
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setIsMenuOpen(false);
+      }
+    } else if (href.startsWith('mailto:')) {
+      // Allow mailto links to work normally
       setIsMenuOpen(false);
     }
   };
@@ -55,25 +58,37 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
               <Mail className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-slate-900 dark:text-white">
+            <span className="text-xl font-bold text-text-darkest dark:text-white">
               EmailMassivo
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map(item => (
               <a
                 key={item.key}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)}
-                className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200"
+                className="text-text dark:text-text-light hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
               >
                 {t.nav[item.key as keyof typeof t.nav]}
               </a>
             ))}
+            <a
+              href="https://app.emailmassivo.com/auth/sign-in/"
+              className="text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
+            >
+              {t.nav.logIn}
+            </a>
+            <a
+              href="https://app.emailmassivo.com/auth/register/"
+              className="px-4 py-2 bg-primary-light hover:bg-primary text-white rounded-lg font-medium transition-colors duration-200"
+            >
+              {t.nav.signUp}
+            </a>
           </nav>
 
           <div className="flex items-center space-x-3">
@@ -97,11 +112,14 @@ export const Header: React.FC = () => {
                         setIsLangOpen(false);
                       }}
                       className={`w-full px-4 py-2 text-left flex items-center space-x-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
-                        language === lang.code ? 'bg-emerald-50 dark:bg-emerald-900/20' : ''
+                        language === lang.code ? 'bg-primary-light/10 dark:bg-primary-dark/20' : ''
                       }`}
                     >
-                      <span className="text-xl">{lang.flag}</span>
-                      <span className="text-slate-700 dark:text-slate-200">{lang.label}</span>
+                      <span className="text-base w-6 text-center dark:brightness-0 dark:invert">{lang.flag}</span>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-base font-bold text-text-dark dark:text-slate-200">{lang.codeLabel}</span>
+                        <span className="text-base font-light text-text dark:text-slate-200">{lang.label}</span>
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -135,17 +153,29 @@ export const Header: React.FC = () => {
         </div>
 
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800">
+          <nav className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
             {navItems.map(item => (
               <a
                 key={item.key}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)}
-                className="block py-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200"
+                className="block py-2 text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
               >
                 {t.nav[item.key as keyof typeof t.nav]}
               </a>
             ))}
+            <a
+              href="https://app.emailmassivo.com/auth/sign-in/"
+              className="block py-2 text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
+            >
+              {t.nav.logIn}
+            </a>
+            <a
+              href="https://app.emailmassivo.com/auth/register/"
+              className="block py-2 px-4 bg-primary-light text-white rounded-lg font-medium text-center"
+            >
+              {t.nav.signUp}
+            </a>
           </nav>
         )}
       </div>
