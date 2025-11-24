@@ -20,10 +20,10 @@ export const Benefits: React.FC = () => {
             <p className="text-text dark:text-slate-300 mb-6 leading-relaxed">
               {t.benefits.simplicity.description}
             </p>
-            <button className="group inline-flex items-center space-x-2 px-6 py-3 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-all duration-200 hover:scale-105">
+            <a href="https://app.emailmassivo.com/auth/register/" className="group inline-flex items-center space-x-2 px-6 py-3 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-all duration-200 hover:scale-105">
               <span>{t.benefits.simplicity.cta}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
 
           {/* Card 2 - 500 Free */}
@@ -37,10 +37,10 @@ export const Benefits: React.FC = () => {
             <p className="text-white/90 mb-6 leading-relaxed">
               {t.benefits.free500.description}
             </p>
-            <button className="group inline-flex items-center space-x-2 px-6 py-3 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
+            <a href="https://app.emailmassivo.com/auth/register/" className="group inline-flex items-center space-x-2 px-6 py-3 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
               <span>{t.benefits.free500.cta}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

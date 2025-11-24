@@ -136,9 +136,9 @@ export const Pricing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <button className="mt-auto w-full py-3 px-6 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-colors duration-200">
+            <a href="https://app.emailmassivo.com/auth/register/" className="mt-auto w-full py-3 px-6 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-colors duration-200 text-center block">
               {t.pricing.free.cta}
-            </button>
+            </a>
                 </div>
 
           {/* Premium Plan */}
@@ -182,9 +182,9 @@ export const Pricing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <button className="mt-auto w-full py-3 px-6 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-colors duration-200">
+            <a href="https://app.emailmassivo.com/auth/register/" className="mt-auto w-full py-3 px-6 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-colors duration-200 text-center block">
               {t.pricing.premium.cta}
-            </button>
+            </a>
           </div>
         </div>
 
@@ -255,9 +255,9 @@ export const Pricing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <button className="mt-auto w-full py-3 px-6 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-colors duration-200">
+            <a href="https://app.emailmassivo.com/auth/register/" className="mt-auto w-full py-3 px-6 bg-primary-light hover:bg-primary text-white rounded-lg font-semibold transition-colors duration-200 text-center block">
               {t.pricing.freeApi.cta}
-            </button>
+            </a>
               </div>
 
           {/* Premium API+SMTP */}
@@ -301,9 +301,9 @@ export const Pricing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <button className="mt-auto w-full py-3 px-6 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-colors duration-200">
+            <a href="https://app.emailmassivo.com/auth/register/" className="mt-auto w-full py-3 px-6 bg-white text-primary-light hover:bg-white/90 rounded-lg font-semibold transition-colors duration-200 text-center block">
               {t.pricing.premiumApi.cta}
-            </button>
+            </a>
           </div>
         </div>
       </div>

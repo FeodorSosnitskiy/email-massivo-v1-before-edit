@@ -86,7 +86,7 @@ export const translations = {
         title: 'Free API+SMTP',
         subtitle: 'A good way to get to know EmailMassivo',
         price: '0 $/month',
-        sendsLabel: 'Sends per month',
+        sendsLabel: 'Email per month',
         sendsDefault: '100',
         benefitsTitle: 'Key benefits',
         benefits: [
@@ -100,7 +100,7 @@ export const translations = {
       premiumApi: {
         title: 'Premium API+SMTP',
         subtitle: 'An excellent solution for marketers',
-        sendsLabel: 'Sends per month',
+        sendsLabel: 'Email per month',
         sendsDefault: '6,000',
         benefitsTitle: 'Everything in "Free", plus:',
         benefits: [
@@ -171,11 +171,11 @@ export const translations = {
         },
         {
           question: 'Do you offer an API?',
-          answer: 'In EmailMassivo, you can create an API key at the following link: https://app.emailmassivo.com/api. The free plan includes 100 sends. You can read more about creating and using the API here.'
+          answer: 'In EmailMassivo, you can create an API key at the following link: https://app.emailmassivo.com/api. The free plan includes 100 emails. You can read more about creating and using the API here.'
         },
         {
           question: 'Do you provide an SMTP service?',
-          answer: 'Yes, we offer an SMTP service for sending emails. The free plan includes 100 sends. You can find more details about setting up and using SMTP in our knowledge base.'
+          answer: 'Yes, we offer an SMTP service for sending emails. The free plan includes 100 emails. You can find more details about setting up and using SMTP in our knowledge base.'
         }
       ]
     },
@@ -289,7 +289,7 @@ export const translations = {
         title: 'Free API+SMTP',
         subtitle: 'Una buena opción para conocer EmailMassivo',
         price: '0 $/mes',
-        sendsLabel: 'Envíos al mes',
+        sendsLabel: 'Email al mes',
         sendsDefault: '100',
         benefitsTitle: 'Beneficios clave',
         benefits: [
@@ -303,7 +303,7 @@ export const translations = {
       premiumApi: {
         title: 'Premium API+SMTP',
         subtitle: 'Una excelente solución para profesionales de marketing',
-        sendsLabel: 'Envíos al mes',
+        sendsLabel: 'Email al mes',
         sendsDefault: '6 000',
         benefitsTitle: 'Todo lo incluido en «Free», más:',
         benefits: [
@@ -374,11 +374,11 @@ export const translations = {
         },
         {
           question: '¿Tienen API disponible?',
-          answer: 'En EmailMassivo puede crear una clave de API en el siguiente enlace: https://app.emailmassivo.com/api. En el plan gratuito tiene disponibles 100 envíos. Puede leer más sobre cómo crear y usar la API aquí.'
+          answer: 'En EmailMassivo puede crear una clave de API en el siguiente enlace: https://app.emailmassivo.com/api. En el plan gratuito tiene disponibles 100 emails. Puede leer más sobre cómo crear y usar la API aquí.'
         },
         {
           question: '¿Cuentan con servicio SMTP?',
-          answer: 'Sí, ofrecemos un servicio SMTP para el envío de correos electrónicos. En el plan gratuito tiene disponibles 100 envíos. Puede encontrar más información sobre cómo configurar y usar SMTP en nuestra base de conocimientos.'
+          answer: 'Sí, ofrecemos un servicio SMTP para el envío de correos electrónicos. En el plan gratuito tiene disponibles 100 emails. Puede encontrar más información sobre cómo configurar y usar SMTP en nuestra base de conocimientos.'
         }
       ]
     },
@@ -492,7 +492,7 @@ export const translations = {
         title: 'Free API+SMTP',
         subtitle: 'Uma ótima opção para conhecer o EmailMassivo',
         price: '0 $/mês',
-        sendsLabel: 'Envios por mês',
+        sendsLabel: 'Email por mês',
         sendsDefault: '100',
         benefitsTitle: 'Principais benefícios',
         benefits: [
@@ -506,7 +506,7 @@ export const translations = {
       premiumApi: {
         title: 'Premium API+SMTP',
         subtitle: 'Uma excelente solução para profissionais de marketing',
-        sendsLabel: 'Envios por mês',
+        sendsLabel: 'Email por mês',
         sendsDefault: '6 000',
         benefitsTitle: 'Tudo o que está no "Free", mais:',
         benefits: [
@@ -577,11 +577,11 @@ export const translations = {
         },
         {
           question: 'Vocês oferecem uma API?',
-          answer: 'No EmailMassivo, você pode criar uma chave de API neste link: https://app.emailmassivo.com/api. No plano gratuito estão disponíveis 100 envios. Você pode ler mais sobre como criar e usar a API aqui.'
+          answer: 'No EmailMassivo, você pode criar uma chave de API neste link: https://app.emailmassivo.com/api. No plano gratuito estão disponíveis 100 emails. Você pode ler mais sobre como criar e usar a API aqui.'
         },
         {
           question: 'Vocês possuem serviço SMTP?',
-          answer: 'Sim, oferecemos um serviço de SMTP para o envio de e-mails. No plano gratuito estão disponíveis 100 envios. Você encontra mais detalhes sobre como configurar e usar o SMTP em nossa base de conhecimento.'
+          answer: 'Sim, oferecemos um serviço de SMTP para o envio de e-mails. No plano gratuito estão disponíveis 100 emails. Você encontra mais detalhes sobre como configurar e usar o SMTP em nossa base de conhecimento.'
         }
       ]
     },
