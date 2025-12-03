@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
 
   const navItems = [
     { key: 'knowledgeBase', href: '#' },
-    { key: 'support', href: 'mailto:support@emailmassivo.com' },
+    { key: 'support', href: '/support' },
     { key: 'pricing', href: '#pricing' }
   ];
 
@@ -35,6 +35,9 @@ export const Header: React.FC = () => {
       }
     } else if (href.startsWith('mailto:')) {
       // Allow mailto links to work normally
+      setIsMenuOpen(false);
+    } else if (href.startsWith('/')) {
+      // Allow navigation links to work normally
       setIsMenuOpen(false);
     }
   };

@@ -117,7 +117,9 @@ export const translations = {
       },
       apiTitle: 'API+SMTP plans',
       periodMonth: 'Month',
-      periodYear: 'Year −20%'
+      periodYear: 'Year −20%',
+      month: 'month',
+      year: 'year'
     },
     hosting: {
       freeHosting: {
@@ -205,6 +207,36 @@ export const translations = {
       },
       support: 'Support',
       copyright: '© 2025 EmailMassivo — smart platform for email campaigns. All rights reserved.'
+    },
+    support: {
+      hero: {
+        title: 'Support 24/7',
+        subtitle: 'Get help and information about EmailMassivo in our Knowledge Base.'
+      },
+      knowledgeBase: {
+        title: 'Knowledge Base',
+        description: 'Learn in detail how to work with the EmailMassivo service.'
+      },
+      needHelp: {
+        title: 'Need help?',
+        description: 'Fill out the "Ask a question" form or email us at support@emailmassivo.com — we\'ll be happy to assist you.'
+      },
+      quickStart: {
+        title: 'Quick Start with EmailMassivo',
+        description: 'A step-by-step guide to quickly learn the platform and send your first campaign.',
+        button: 'Knowledge Base'
+      },
+      form: {
+        title: 'Ask a question',
+        fields: {
+          name: 'Your name',
+          website: 'Company website',
+          email: 'Email',
+          message: 'Message'
+        },
+        checkbox: 'I consent to the processing of my personal data.',
+        submit: 'Send'
+      }
     }
   },
   es: {
@@ -325,7 +357,9 @@ export const translations = {
       },
       apiTitle: 'Planes API+SMTP',
       periodMonth: 'Mes',
-      periodYear: 'Año −20 %'
+      periodYear: 'Año −20 %',
+      month: 'mes',
+      year: 'año'
     },
     hosting: {
       freeHosting: {
@@ -413,6 +447,36 @@ export const translations = {
       },
       support: 'Soporte',
       copyright: '© 2025 EmailMassivo — plataforma inteligente para campañas de email. Todos los derechos reservados.'
+    },
+    support: {
+      hero: {
+        title: 'Soporte 24/7',
+        subtitle: 'Obtén ayuda e información sobre EmailMassivo en nuestra Base de conocimientos.'
+      },
+      knowledgeBase: {
+        title: 'Base de conocimientos',
+        description: 'Conoce en detalle cómo trabajar con el servicio de EmailMassivo.'
+      },
+      needHelp: {
+        title: '¿Necesitas ayuda?',
+        description: 'Completa el formulario "Hacer una pregunta" o escríbenos a support@emailmassivo.com; con gusto te ayudaremos.'
+      },
+      quickStart: {
+        title: 'Inicio rápido en EmailMassivo',
+        description: 'Guía paso a paso para aprender a usar la plataforma y enviar tu primera campaña.',
+        button: 'Base de conocimientos'
+      },
+      form: {
+        title: 'Hacer una pregunta',
+        fields: {
+          name: 'Tu nombre',
+          website: 'Sitio web de la empresa',
+          email: 'Correo electrónico',
+          message: 'Mensaje'
+        },
+        checkbox: 'Doy mi consentimiento para el tratamiento de mis datos personales.',
+        submit: 'Enviar'
+      }
     }
   },
   pt: {
@@ -533,7 +597,9 @@ export const translations = {
       },
       apiTitle: 'Planos API+SMTP',
       periodMonth: 'Mês',
-      periodYear: 'Ano −20 %'
+      periodYear: 'Ano −20 %',
+      month: 'mês',
+      year: 'ano'
     },
     hosting: {
       freeHosting: {
@@ -621,6 +687,36 @@ export const translations = {
       },
       support: 'Suporte',
       copyright: '© 2025 EmailMassivo — plataforma inteligente para campanhas de e-mail. Todos os direitos reservados.'
+    },
+    support: {
+      hero: {
+        title: 'Suporte 24/7',
+        subtitle: 'Obtenha ajuda e informações sobre o EmailMassivo em nossa Base de Conhecimento.'
+      },
+      knowledgeBase: {
+        title: 'Base de Conhecimento',
+        description: 'Saiba em detalhes como usar o serviço do EmailMassivo.'
+      },
+      needHelp: {
+        title: 'Precisa de ajuda?',
+        description: 'Preencha o formulário "Fazer uma pergunta" ou envie um e-mail para support@emailmassivo.com — teremos prazer em ajudar.'
+      },
+      quickStart: {
+        title: 'Comece rápido no EmailMassivo',
+        description: 'Guia passo a passo para aprender a usar a plataforma e enviar sua primeira campanha.',
+        button: 'Base de Conhecimento'
+      },
+      form: {
+        title: 'Fazer uma pergunta',
+        fields: {
+          name: 'Seu nome',
+          website: 'Site da empresa',
+          email: 'E-mail',
+          message: 'Mensagem'
+        },
+        checkbox: 'Dou meu consentimento para o tratamento dos meus dados pessoais.',
+        submit: 'Enviar'
+      }
     }
   }
 };

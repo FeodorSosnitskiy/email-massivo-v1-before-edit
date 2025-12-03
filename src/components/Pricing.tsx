@@ -110,7 +110,7 @@ export const Pricing: React.FC = () => {
               {t.pricing.free.subtitle}
             </p>
             <div className="text-4xl font-bold text-text-darkest dark:text-white mb-8">
-              0 $<span className="text-lg text-text-light dark:text-slate-400">/{isYearly ? 'year' : 'month'}</span>
+              0 $<span className="text-lg text-text-light dark:text-slate-400">/{isYearly ? t.pricing.year : t.pricing.month}</span>
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-text-dark dark:text-slate-300 mb-2">
@@ -151,7 +151,7 @@ export const Pricing: React.FC = () => {
             </p>
             <div className="text-4xl font-bold text-white mb-8">
               ${getPremiumPrice()}
-              <span className="text-lg text-white/90">/{isYearly ? 'year' : 'month'}</span>
+              <span className="text-lg text-white/90">/{isYearly ? t.pricing.year : t.pricing.month}</span>
             </div>
               <div className="mb-6">
               <label className="block text-sm font-medium text-white/90 mb-2">
@@ -229,7 +229,7 @@ export const Pricing: React.FC = () => {
               {t.pricing.freeApi.subtitle}
             </p>
             <div className="text-4xl font-bold text-text-darkest dark:text-white mb-8">
-              0 $<span className="text-lg text-text-light dark:text-slate-400">/{isYearly ? 'year' : 'month'}</span>
+              0 $<span className="text-lg text-text-light dark:text-slate-400">/{isYearly ? t.pricing.year : t.pricing.month}</span>
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-text-dark dark:text-slate-300 mb-2">
@@ -270,7 +270,7 @@ export const Pricing: React.FC = () => {
             </p>
             <div className="text-4xl font-bold text-white mb-8">
               ${getPremiumApiPrice()}
-              <span className="text-lg text-white/90">/{isYearly ? 'year' : 'month'}</span>
+              <span className="text-lg text-white/90">/{isYearly ? t.pricing.year : t.pricing.month}</span>
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-white/90 mb-2">
