@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Sun, Moon, Globe, Menu, X } from 'lucide-react';
+import { Mail, Sun, Moon, Globe, Menu, X, Monitor } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../i18n/translations';
 
 export const Header: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isThemeOpen, setIsThemeOpen] = useState(false);
   const langMenuRef = useRef<HTMLDivElement>(null);
+  const themeMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { key: 'knowledgeBase', href: '#' },
@@ -17,10 +19,10 @@ export const Header: React.FC = () => {
     { key: 'pricing', href: '#pricing' }
   ];
 
-  const languages: { code: Language; label: string; flag: string; codeLabel: string }[] = [
-    { code: 'en', label: 'English', flag: '🇺🇸', codeLabel: 'EN' },
-    { code: 'es', label: 'Español', flag: '🇪🇸', codeLabel: 'ES' },
-    { code: 'pt', label: 'Português', flag: '🇧🇷', codeLabel: 'PT' }
+  const languages: { code: Language; label: string }[] = [
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Español' },
+    { code: 'pt', label: 'Português' }
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -42,16 +44,34 @@ export const Header: React.FC = () => {
       if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
         setIsLangOpen(false);
       }
+      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target as Node)) {
+        setIsThemeOpen(false);
+      }
     };
 
-    if (isLangOpen) {
+    if (isLangOpen || isThemeOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isLangOpen]);
+  }, [isLangOpen, isThemeOpen]);
+
+  const themes = [
+    { value: 'light' as const, icon: Sun },
+    { value: 'dark' as const, icon: Moon },
+    { value: 'system' as const, icon: Monitor },
+  ];
+
+  const getThemeIcon = () => {
+    const currentTheme = themes.find(t => t.value === theme);
+    if (currentTheme) {
+      const Icon = currentTheme.icon;
+      return <Icon className="w-5 h-5 text-slate-600 dark:text-slate-300" />;
+    }
+    return <Sun className="w-5 h-5 text-slate-600 dark:text-slate-300" />;
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -111,32 +131,51 @@ export const Header: React.FC = () => {
                         setLanguage(lang.code);
                         setIsLangOpen(false);
                       }}
-                      className={`w-full px-4 py-2 text-left flex items-center space-x-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
+                      className={`w-full px-4 py-2 text-left hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
                         language === lang.code ? 'bg-primary-light/10 dark:bg-primary-dark/20' : ''
                       }`}
                     >
-                      <span className="text-base w-6 text-center dark:brightness-0 dark:invert">{lang.flag}</span>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-base font-bold text-text-dark dark:text-slate-200">{lang.codeLabel}</span>
-                        <span className="text-base font-light text-text dark:text-slate-200">{lang.label}</span>
-                      </div>
+                      <span className="text-base font-medium text-text-dark dark:text-slate-200">{lang.label}</span>
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-slate-600 dark:text-slate-300" />
-              ) : (
-                <Sun className="w-5 h-5 text-slate-600 dark:text-slate-300" />
+            <div className="relative" ref={themeMenuRef}>
+              <button
+                onClick={() => setIsThemeOpen(!isThemeOpen)}
+                className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200"
+                aria-label="Change theme"
+                aria-expanded={isThemeOpen}
+              >
+                {getThemeIcon()}
+              </button>
+
+              {isThemeOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-1 z-50">
+                  {themes.map(themeOption => {
+                    const Icon = themeOption.icon;
+                    const label = t.theme[themeOption.value];
+                    return (
+                      <button
+                        key={themeOption.value}
+                        onClick={() => {
+                          setTheme(themeOption.value);
+                          setIsThemeOpen(false);
+                        }}
+                        className={`w-full px-4 py-2 text-left flex items-center space-x-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
+                          theme === themeOption.value ? 'bg-primary-light/10 dark:bg-primary-dark/20' : ''
+                        }`}
+                      >
+                        <Icon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
+                        <span className="text-sm font-medium text-text-dark dark:text-slate-200">{label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               )}
-            </button>
+            </div>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

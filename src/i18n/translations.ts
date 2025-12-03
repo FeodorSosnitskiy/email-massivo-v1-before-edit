@@ -7,6 +7,11 @@ export const translations = {
       logIn: 'Log in',
       signUp: 'Sign up'
     },
+    theme: {
+      light: 'Light',
+      dark: 'Dark',
+      system: 'System'
+    },
     hero: {
       headline: 'Smart platform for email campaigns',
       subheadline: 'Creating a campaign is easy!',
@@ -210,6 +215,11 @@ export const translations = {
       logIn: 'Iniciar sesión',
       signUp: 'Crear cuenta'
     },
+    theme: {
+      light: 'Claro',
+      dark: 'Oscuro',
+      system: 'Sistema'
+    },
     hero: {
       headline: 'Plataforma inteligente para campañas de email',
       subheadline: '¡Crear una campaña es fácil!',
@@ -412,6 +422,11 @@ export const translations = {
       pricing: 'Preços',
       logIn: 'Entrar',
       signUp: 'Criar conta'
+    },
+    theme: {
+      light: 'Claro',
+      dark: 'Escuro',
+      system: 'Sistema'
     },
     hero: {
       headline: 'Plataforma inteligente para campanhas de e-mail',
