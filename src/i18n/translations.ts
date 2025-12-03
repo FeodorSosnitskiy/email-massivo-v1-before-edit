@@ -206,7 +206,7 @@ export const translations = {
         privacy: 'Privacy policy'
       },
       support: 'Support',
-      copyright: '© 2025 EmailMassivo — smart platform for email campaigns. All rights reserved.'
+      copyright: '© 2026 EmailMassivo — smart platform for email campaigns. All rights reserved.'
     },
     support: {
       hero: {
@@ -446,7 +446,7 @@ export const translations = {
         privacy: 'Política de privacidad'
       },
       support: 'Soporte',
-      copyright: '© 2025 EmailMassivo — plataforma inteligente para campañas de email. Todos los derechos reservados.'
+      copyright: '© 2026 EmailMassivo — plataforma inteligente para campañas de email. Todos los derechos reservados.'
     },
     support: {
       hero: {
@@ -686,7 +686,7 @@ export const translations = {
         privacy: 'Política de privacidade'
       },
       support: 'Suporte',
-      copyright: '© 2025 EmailMassivo — plataforma inteligente para campanhas de e-mail. Todos os direitos reservados.'
+      copyright: '© 2026 EmailMassivo — plataforma inteligente para campanhas de e-mail. Todos os direitos reservados.'
     },
     support: {
       hero: {
