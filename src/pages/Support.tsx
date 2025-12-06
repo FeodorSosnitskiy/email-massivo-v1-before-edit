@@ -36,7 +36,7 @@ export const Support: React.FC = () => {
       <Header />
       <main className="pt-16">
         {/* 1 блок — Поддержка 24/7 */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+        <section className="pt-20 pb-20 md:pb-0 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl sm:text-6xl font-bold text-text-darkest dark:text-white mb-6">
               {t.support.hero.title}

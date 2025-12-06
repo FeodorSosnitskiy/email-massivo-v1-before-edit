@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Sun, Moon, Globe, Menu, X, Monitor } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../i18n/translations';
@@ -7,6 +8,8 @@ import { Language } from '../i18n/translations';
 export const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isThemeOpen, setIsThemeOpen] = useState(false);
@@ -14,9 +17,9 @@ export const Header: React.FC = () => {
   const themeMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { key: 'knowledgeBase', href: '#' },
-    { key: 'support', href: '/support' },
-    { key: 'pricing', href: '#pricing' }
+    { key: 'knowledgeBase', href: '#', path: '/' },
+    { key: 'support', href: '/support', path: '/support' },
+    { key: 'pricing', href: '/pricing', path: '/pricing' }
   ];
 
   const languages: { code: Language; label: string }[] = [
@@ -28,16 +31,34 @@ export const Header: React.FC = () => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setIsMenuOpen(false);
+      
+      // Если мы не на главной странице, переходим на главную
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Ждем загрузки страницы и прокручиваем к элементу
+        const scrollToElement = () => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            // Если элемент еще не загружен, пробуем еще раз
+            setTimeout(scrollToElement, 50);
+          }
+        };
+        setTimeout(scrollToElement, 100);
+      } else {
+        // Если уже на главной странице, просто прокручиваем
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
+      setIsMenuOpen(false);
     } else if (href.startsWith('mailto:')) {
       // Allow mailto links to work normally
       setIsMenuOpen(false);
     } else if (href.startsWith('/')) {
-      // Allow navigation links to work normally
+      // Allow navigation links to work normally (react-router will handle it)
       setIsMenuOpen(false);
     }
   };
@@ -90,16 +111,24 @@ export const Header: React.FC = () => {
           </a>
 
           <nav className="hidden md:flex items-center space-x-6">
-            {navItems.map(item => (
-              <a
-                key={item.key}
-                href={item.href}
-                onClick={(e) => handleScroll(e, item.href)}
-                className="text-text dark:text-text-light hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
-              >
-                {t.nav[item.key as keyof typeof t.nav]}
-              </a>
-            ))}
+            {navItems.map(item => {
+              const isActive = location.pathname === item.path || 
+                (item.path === '/' && location.pathname === '/');
+              return (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  onClick={(e) => handleScroll(e, item.href)}
+                  className={`transition-colors duration-200 ${
+                    isActive
+                      ? 'text-primary-light font-semibold'
+                      : 'text-text dark:text-text-light hover:text-primary-light dark:hover:text-primary-light'
+                  }`}
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </a>
+              );
+            })}
             <a
               href="https://app.emailmassivo.com/auth/sign-in/"
               className="text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
@@ -196,16 +225,24 @@ export const Header: React.FC = () => {
 
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
-            {navItems.map(item => (
-              <a
-                key={item.key}
-                href={item.href}
-                onClick={(e) => handleScroll(e, item.href)}
-                className="block py-2 text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"
-              >
-                {t.nav[item.key as keyof typeof t.nav]}
-              </a>
-            ))}
+            {navItems.map(item => {
+              const isActive = location.pathname === item.path || 
+                (item.path === '/' && location.pathname === '/');
+              return (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  onClick={(e) => handleScroll(e, item.href)}
+                  className={`block py-2 transition-colors duration-200 ${
+                    isActive
+                      ? 'text-primary-light font-semibold'
+                      : 'text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light'
+                  }`}
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </a>
+              );
+            })}
             <a
               href="https://app.emailmassivo.com/auth/sign-in/"
               className="block py-2 text-text dark:text-slate-300 hover:text-primary-light dark:hover:text-primary-light transition-colors duration-200"

@@ -5,7 +5,6 @@ import { Stepper } from '../components/Stepper';
 import { Benefits } from '../components/Benefits';
 import { Features } from '../components/Features';
 import { Analytics } from '../components/Analytics';
-import { Pricing } from '../components/Pricing';
 import { Hosting } from '../components/Hosting';
 import { FAQ } from '../components/FAQ';
 import { FinalCTA } from '../components/FinalCTA';
@@ -52,7 +51,6 @@ export const Home = () => {
         <Benefits />
         <Features />
         <Analytics />
-        <Pricing />
         <Hosting />
         <FAQ />
         <FinalCTA />

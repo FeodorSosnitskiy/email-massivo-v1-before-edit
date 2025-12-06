@@ -41,17 +41,17 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-4">Legal</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
+                <a href="/license" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
                   {t.footer.legal.license}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
+                <a href="/anti-spam" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
                   {t.footer.legal.antiSpam}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
+                <a href="/privacy" className="text-slate-400 hover:text-primary-light transition-colors duration-200">
                   {t.footer.legal.privacy}
                 </a>
               </li>
