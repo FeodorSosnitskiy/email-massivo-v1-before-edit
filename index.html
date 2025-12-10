@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <title>EmailMassivo</title>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,5 +21,58 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      var queryForm = function(){
+          var self = window.location.toString();
+          var querystring = self.split("?");
+          var newRegisterUrl = '?';
+
+          var URL = 'URL_';
+          if (sessionStorage.getItem(URL + 'referer') === null) {
+              sessionStorage.setItem(URL + 'referer', decodeURIComponent(document.referrer));
+          } else {
+              sessionStorage.setItem(URL + 'referer_last', decodeURIComponent(document.referrer));
+          }
+
+          if (querystring.length > 1) {
+              var pairs = querystring[1].split("&");
+              for (var i in pairs) {
+                  var keyval = pairs[i].split("=");
+                  if (sessionStorage.getItem(URL + keyval[0]) === null) {
+                      sessionStorage.setItem(URL + keyval[0], decodeURIComponent(keyval[1]));
+                  } else {
+                      sessionStorage.setItem(URL + keyval[0] + '_last', decodeURIComponent(keyval[1]));
+                  }
+              }
+          }
+          var hiddenFields = document.querySelectorAll("input[type=hidden], input[type=text]");
+          for (var i=0; i<hiddenFields.length; i++) {
+              var param = sessionStorage.getItem(hiddenFields[i].name);
+              if (param) document.getElementsByName(hiddenFields[i].name)[0].value = param;
+          }
+
+          for (const [key, value] of Object.entries(sessionStorage)) {
+              if (key.indexOf(URL) !== -1) {
+                  if (newRegisterUrl.length >= 2) newRegisterUrl = newRegisterUrl + '&';
+                  newRegisterUrl = newRegisterUrl + key + '=' + value;
+              }
+          }
+
+          console.log(newRegisterUrl);
+
+          const registerButtons = document.querySelectorAll("a[href^='https://app.emailmassivo.com/auth/register']");
+          const loginButtons = document.querySelectorAll("a[href^='https://app.emailmassivo.com/auth/sign-in']");
+
+          for (var i=0; i<registerButtons.length; i++) {
+              registerButtons[i].href = registerButtons[i].href + newRegisterUrl;
+          }
+
+          for (var i=0; i<loginButtons.length; i++) {
+              loginButtons[i].href = loginButtons[i].href + newRegisterUrl;
+          }
+      }
+
+      setTimeout(function(){queryForm();}, 3000);
+    </script>
   </body>
 </html>
