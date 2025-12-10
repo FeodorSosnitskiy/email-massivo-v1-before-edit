@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../i18n/translations';
+import { getPathWithLanguage, getPathWithoutLanguage } from '../utils/languageRoutes';
 
 export const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();
@@ -32,9 +33,12 @@ export const Header: React.FC = () => {
     if (href.startsWith('#')) {
       e.preventDefault();
       
+      const homePath = getPathWithLanguage('/', language);
+      const pathWithoutLang = getPathWithoutLanguage(location.pathname);
+      
       // Если мы не на главной странице, переходим на главную
-      if (location.pathname !== '/') {
-        navigate('/');
+      if (pathWithoutLang !== '/') {
+        navigate(homePath);
         // Ждем загрузки страницы и прокручиваем к элементу
         const scrollToElement = () => {
           const element = document.querySelector(href);
@@ -101,7 +105,7 @@ export const Header: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
+          <a href={getPathWithLanguage('/', language)} className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
               <Mail className="w-6 h-6 text-white" />
             </div>
@@ -112,12 +116,16 @@ export const Header: React.FC = () => {
 
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map(item => {
-              const isActive = location.pathname === item.path || 
-                (item.path === '/' && location.pathname === '/');
+              const pathWithoutLang = getPathWithoutLanguage(location.pathname);
+              const isActive = pathWithoutLang === item.path || 
+                (item.path === '/' && pathWithoutLang === '/');
+              const hrefWithLang = item.href.startsWith('#') 
+                ? item.href 
+                : getPathWithLanguage(item.href, language);
               return (
                 <a
                   key={item.key}
-                  href={item.href}
+                  href={hrefWithLang}
                   onClick={(e) => handleScroll(e, item.href)}
                   className={`transition-colors duration-200 ${
                     isActive
@@ -226,12 +234,16 @@ export const Header: React.FC = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
             {navItems.map(item => {
-              const isActive = location.pathname === item.path || 
-                (item.path === '/' && location.pathname === '/');
+              const pathWithoutLang = getPathWithoutLanguage(location.pathname);
+              const isActive = pathWithoutLang === item.path || 
+                (item.path === '/' && pathWithoutLang === '/');
+              const hrefWithLang = item.href.startsWith('#') 
+                ? item.href 
+                : getPathWithLanguage(item.href, language);
               return (
                 <a
                   key={item.key}
-                  href={item.href}
+                  href={hrefWithLang}
                   onClick={(e) => handleScroll(e, item.href)}
                   className={`block py-2 transition-colors duration-200 ${
                     isActive

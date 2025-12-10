@@ -1,0 +1,51 @@
+# Сначала устанавливаем правильные MIME-типы (ВАЖНО: до rewrite правил!)
+<IfModule mod_mime.c>
+    AddType application/javascript .js .mjs
+    AddType application/wasm .wasm
+    AddType text/css .css
+    AddType application/json .json
+    AddType image/svg+xml .svg .svgz
+    AddType image/png .png
+    AddType image/jpeg .jpg .jpeg
+    AddType image/webp .webp
+    AddType image/gif .gif
+    AddType image/x-icon .ico
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Пробрасываем авторизацию (если вдруг нужно)
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # КРИТИЧНО: Перенаправляем запросы к assets с языковыми префиксами на реальную папку assets
+    # Например: /en/assets/file.js -> /assets/file.js
+    RewriteCond %{REQUEST_URI} ^/(en|es)/assets/(.*)$ [NC]
+    RewriteRule ^ /assets/%2 [L]
+
+    # КРИТИЧНО: Если файл существует физически - отдаем его БЕЗ изменений
+    # Это должно быть ПЕРВЫМ правилом для файлов!
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Если папка существует - отдаем как есть
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Если запрашиваем index.html напрямую, отдаем как есть
+    RewriteRule ^index\.html$ - [L]
+
+    # Всё остальное отправляем в index.html (React-приложение)
+    RewriteRule . /index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>

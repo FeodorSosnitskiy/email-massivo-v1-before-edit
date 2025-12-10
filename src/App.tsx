@@ -11,18 +11,35 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy';
 function App() {
   return (
     <ThemeProvider>
-      <LanguageProvider>
-        <Router>
+      <Router>
+        <LanguageProvider>
           <Routes>
+            {/* Португальский (по умолчанию, без префикса) */}
             <Route path="/" element={<Home />} />
             <Route path="/support" element={<Support />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/license" element={<LicenseAgreement />} />
             <Route path="/anti-spam" element={<AntiSpamPolicy />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            
+            {/* Английский */}
+            <Route path="/en" element={<Home />} />
+            <Route path="/en/support" element={<Support />} />
+            <Route path="/en/pricing" element={<PricingPage />} />
+            <Route path="/en/license" element={<LicenseAgreement />} />
+            <Route path="/en/anti-spam" element={<AntiSpamPolicy />} />
+            <Route path="/en/privacy" element={<PrivacyPolicy />} />
+            
+            {/* Испанский */}
+            <Route path="/es" element={<Home />} />
+            <Route path="/es/support" element={<Support />} />
+            <Route path="/es/pricing" element={<PricingPage />} />
+            <Route path="/es/license" element={<LicenseAgreement />} />
+            <Route path="/es/anti-spam" element={<AntiSpamPolicy />} />
+            <Route path="/es/privacy" element={<PrivacyPolicy />} />
           </Routes>
-        </Router>
-      </LanguageProvider>
+        </LanguageProvider>
+      </Router>
     </ThemeProvider>
   );
 }
